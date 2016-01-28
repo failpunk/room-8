@@ -3,7 +3,7 @@
   angular
        .module('users')
        .controller('UserController', [
-          'userService', '$mdSidenav', '$mdBottomSheet', '$log', '$q',
+          'userService', 'workflowService', '$mdSidenav', '$mdBottomSheet', '$log', '$q',
           UserController
        ]);
 
@@ -14,7 +14,7 @@
    * @param avatarsService
    * @constructor
    */
-  function UserController( userService, $mdSidenav, $mdBottomSheet, $log) {
+  function UserController( userService, workflowService, $mdSidenav, $mdBottomSheet, $log) {
     var self = this;
 
     self.selected     = null;
@@ -31,6 +31,8 @@
             self.users    = [].concat(users);
             self.selected = users[0];
           });
+          
+    $log.debug(workflowService)
 
     // *********************************
     // Internal methods

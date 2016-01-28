@@ -76,11 +76,14 @@
     <script src="./src/users/Users.js"></script>
     <script src="./src/users/UserController.js"></script>
     <script src="./src/users/UserService.js"></script>
+    <script src="./src/users/WorkflowService.js"></script>
+    <script src="./state-machine.min.js"></script>
 
     <script type="text/javascript">
 
           angular
               .module('starterApp', ['ngMaterial', 'users'])
+              .value('$fsm', 'StateMachine')
               .config(function($mdThemingProvider, $mdIconProvider){
 
                   $mdIconProvider
