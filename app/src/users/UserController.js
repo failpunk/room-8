@@ -14,7 +14,7 @@
    * @param avatarsService
    * @constructor
    */
-  function UserController( userService, $mdSidenav, $mdBottomSheet, $log) {
+  function UserController( userService, $mdSidenav, $mdBottomSheet, $log, $q) {
     var self = this;
 
     self.selected     = null;
@@ -22,6 +22,20 @@
     self.selectUser   = selectUser;
     self.toggleList   = toggleUsersList;
     self.makeContact  = makeContact;
+
+    self.tabs = [
+      { title: 'One', content: "Tabs will become paginated if there isn't enough room for them."}
+    ];
+
+    self.selected = null;
+    self.previous = null;
+    self.nextTab = nextTab;
+
+    function nextTab() {
+      title = 'ANother Tab  ';
+      view = 'asdflkhas dkofjha lsdkjfhasd ';
+      self.tabs.push({ title: title, content: view, disabled: false});
+    };
 
     // Load all registered users
 
