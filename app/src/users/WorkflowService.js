@@ -13,16 +13,37 @@
    * @constructor
    */
   function WorkflowService($q, $fsm){
-    var fsm = $fsm.create({
-    initial: 'green',
-    events: [
-        { name: 'warn',  from: 'green',  to: 'yellow' },
-        { name: 'panic', from: 'yellow', to: 'red'    },
-        { name: 'calm',  from: 'red',    to: 'yellow' },
-        { name: 'clear', from: 'yellow', to: 'green'  }
-    ]});
+    
+    var events = [
+        { name: 'next',  from: 'start',  to: 'log_in' },
+        { name: 'next', from: 'log_in', to: 'pick_school' },
+        { name: 'next',  from: 'pick_school', to: 'get_phone' },
+        { name: 'next',  from: 'get_phone', to: 'get_question-1' },
+        { name: 'next',  from: ['get_question-1'], to: 'finish' },
+        // { name: 'next',  from: '*', to: 'start' },
+        { name: 'reset',  from: '*', to: 'start' }
+    ];
 
-    return fsm;
+    var fsm = $fsm.create({
+      initial: 'start',
+      events: events
+    });
+    
+    fsm.onenterstate = function (event, from, to, deferred, args) {
+      deferred.resolve([fsm.current, args]);  
+    };
+    
+    fsm.onleavepick_school = function (event, from, to, deferred, args) {
+        // return false;
+    };
+
+    return {
+        'next': function (args) {
+          var deferred = $q.defer();
+          fsm.next(deferred, args);
+          return [deferred.promise, fsm.can('next')];
+        }
+    }
   }
 
 })();
