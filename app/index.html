@@ -92,11 +92,13 @@
         <h2>{{vm.selected.name}}</h2>
 
         <md-chips>
-          <md-chip>Male</md-chip>
-          <md-chip>Has a place</md-chip>
-          <md-chip>On-Campus</md-chip>
-          <md-chip>Needs 2 Roommates</md-chip>
+          <md-chip>{{vm.selected.gender}}</md-chip>
+          <md-chip>{{vm.selected.has_a_place ? 'Has a place' : 'Needs a place'}}</md-chip>
+          <md-chip>{{vm.selected.on_campus ? 'on campus' : 'off campus'}}</md-chip>
+          <md-chip>{{vm.selected.gender}}</md-chip>
         </md-chips>
+
+        <pre>{{vm.selected|json}}</pre>
 
         <p>{{vm.selected.content}}</p>
 
@@ -105,23 +107,23 @@
 
           <md-list-item>
             <i class="material-icons">alarm</i>
-            <p class="user-match-attribute-text">Night Owl</p>
+            <p class="user-match-attribute-text">{{vm.selected.get_question_2 == 'party' ? 'Night Owl' : 'Early Bird'}}</p>
           </md-list-item>
 
           <md-list-item>
             <i class="material-icons">accessibility</i>
-            <p class="user-match-attribute-text">Party Animal</p>
+            <p class="user-match-attribute-text">{{vm.selected.get_question_2 == 'party' ? 'Party Animal' : 'Study Mode'}}</p>
           </md-list-item>
 
           <md-list-item>
             <i class="material-icons">bug_report</i>
-            <p class="user-match-attribute-text">Clean Freak</p>
+            <p class="user-match-attribute-text">{{vm.selected.get_question_3 == 'clean' ? 'Clean Freak' : 'other'}}</p>
           </md-list-item>
         </md-list>
 
         <md-button class="contact favorite" md-no-ink ng-click="vm.addFavorite(vm.selected)" aria-label="Share with {{ vm.selected.name }}">
           <md-tooltip>Favorite {{ vm.selected.name }}</md-tooltip>
-          <i class="material-icons">{{vm.favorite == vm.selected.name ? 'favorite' : 'favorite_border'}}</i>
+          <i class="material-icons" ng-class="{active: vm.favorite == vm.selected.name}">{{vm.favorite == vm.selected.name ? 'favorite' : 'favorite_border'}}</i>
         </md-button>
 
       </md-content>
