@@ -14,14 +14,14 @@
    */
   function QuestionsService($q){
     
-    var questions = [
-        {'text': 'hello world', options: [{'name': 'foo', 'value': 'bar'}]},
+    var questions = {
+       'get_question-1': {'text': 'hello world', options: [{'name': 'foo', 'value': 'bar'}]},
         
-    ];
+    };
    
     return { 
-        'loadAll': function () {
-            return $q.when(questions);
+        'loadAll': function (state) {
+            return $q.when(questions[state]);
         }
     }
   }
