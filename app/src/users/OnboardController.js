@@ -22,6 +22,7 @@
 
     $scope.dataCallback = dataCallback;
     $scope.isQuestion = isQuestion;
+    $scope.goToMatches = goToMatches;
 
     nextStep();
 
@@ -52,6 +53,10 @@
 
     function isQuestion() {
       return $scope.step.indexOf('question') > -1;
+    }
+
+    function goToMatches() {
+      console.log('GO TO MATCHES!');
     }
 
   }

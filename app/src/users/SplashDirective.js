@@ -26,9 +26,36 @@
     return directive;
   }
 
-  Controller.$inject = ['$scope'];
+  Controller.$inject = ['$scope', '$interval'];
 
-  function Controller($scope) {
+  function Controller($scope, $interval) {
+
+    var j= 0, counter = 0;
+
+    $scope.modes = [ ];
+    $scope.activated = true;
+    $scope.determinateValue = 0;
+
+    // Iterate every 100ms, non-stop
+    var cancel = $interval(function() {
+      // Increment the Determinate loader
+      $scope.determinateValue += 3;
+      if ($scope.determinateValue > 100) {
+        finishedProcessing();
+      }
+      // Incrementally start animation the five (5) Indeterminate,
+      // themed progress circular bars
+      if ( (j < 5) && !$scope.modes[j] && $scope.activated ) {
+        $scope.modes[j] = 'indeterminate';
+      }
+      if ( counter++ % 4 == 0 ) j++;
+    }, 100, 0, true);
+
+
+    function finishedProcessing() {
+      $interval.cancel(cancel);
+      $scope.goToMatches();
+    }
 
   }
 
