@@ -18,24 +18,24 @@
 
     var self = this;
 
-    self.selected     = null;
-    self.users        = [ ];
-    self.selectUser   = selectUser;
-    self.toggleList   = toggleUsersList;
-    self.makeContact  = makeContact;
+    vm.selected     = null;
+    vm.users        = [ ];
+    vm.selectUser   = selectUser;
+    vm.toggleList   = toggleUsersList;
+    vm.makeContact  = makeContact;
 
-    self.tabs = [
+    vm.tabs = [
       { title: 'One', content: "Tabs will become paginated if there isn't enough room for them."}
     ];
 
-    self.selected = null;
-    self.previous = null;
-    self.nextTab = nextTab;
+    vm.selected = null;
+    vm.previous = null;
+    vm.nextTab = nextTab;
 
     function nextTab() {
       title = 'ANother Tab  ';
       view = 'asdflkhas dkofjha lsdkjfhasd ';
-      self.tabs.push({ title: title, content: view, disabled: false});
+      vm.tabs.push({ title: title, content: view, disabled: false});
     };
 
     // Load all registered users
@@ -43,8 +43,8 @@
     userService
           .loadAllUsers()
           .then( function( users ) {
-            self.users    = [].concat(users);
-            self.selected = users[0];
+            vm.users    = [].concat(users);
+            vm.selected = users[0];
           });
           
 
@@ -64,7 +64,7 @@
      * @param menuId
      */
     function selectUser ( user ) {
-      self.selected = angular.isNumber(user) ? $scope.users[user] : user;
+      vm.selected = angular.isNumber(user) ? $scope.users[user] : user;
     }
 
     /**
