@@ -26,34 +26,79 @@
 
   <body ng-app="starterApp" layout="row" ng-controller="onboardController as vm" ng-cloak >
 
+    <!-- ONBOARDING-->
+    <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2" ng-if="vm.onboarding">
 
-  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+      <md-toolbar layout="row" class="md-whiteframe-z1">
+        <md-button class="menu" hide-gt-sm aria-label="Show User List">
+          <md-icon md-svg-icon="menu" ></md-icon>
+        </md-button>
+        <h3>Roomie Search</h3>
+      </md-toolbar>
+
+      <md-content flex>
+
+        <step-one-directive ng-if="step == 'log_in'"></step-one-directive>
+
+        <step-two-directive ng-if="step == 'pick_school'"></step-two-directive>
+
+        <step-three-directive ng-if="step == 'get_phone'"></step-three-directive>
+
+        <questions-directive ng-if="isQuestion()"></questions-directive>
+
+        <splash-directive ng-if="step == 'finish'"></splash-directive>
+
+        <pre>{{'Step: ' + step}}</pre>
+
+      </md-content>
+
+    </div>
 
 
-    <md-toolbar layout="row" class="md-whiteframe-z1">
-      <md-button id="main" class="menu" hide-gt-sm aria-label="Show User List">
-        <md-icon md-svg-icon="menu" ></md-icon>
-      </md-button>
-      <h3>Roomie Search</h3>
-    </md-toolbar>
+    <!-- MATCHES -->
+    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+                ng-if="!vm.onboarding"
+                md-component-id="left"
+                ng-click="vm.toggleList()" aria-label="Show User List"
+                md-is-locked-open="$mdMedia('gt-sm')">
 
-    <md-content flex id="content">
+      <md-toolbar class="md-whiteframe-z1">
+        <h3>Users</h3>
+      </md-toolbar>
 
-      <step-one-directive ng-if="step == 'log_in'"></step-one-directive>
+      <md-list>
+        <md-list-item ng-repeat="it in vm.users">
+          <md-button ng-click="vm.selectUser(it)" ng-class="{'selected' : it === vm.selected }">
+            <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
+            {{it.name}}
+          </md-button>
+        </md-list-item>
+      </md-list>
 
-      <step-two-directive ng-if="step == 'pick_school'"></step-two-directive>
+    </md-sidenav>
 
-      <step-three-directive ng-if="step == 'get_phone'"></step-three-directive>
 
-      <questions-directive ng-if="isQuestion()"></questions-directive>
+    <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2" ng-if="!vm.onboarding">
 
-      <splash-directive ng-if="step == 'finish'"></splash-directive>
+      <md-toolbar layout="row" class="md-whiteframe-z1">
+        <md-button id="main" class="menu" hide-gt-sm ng-click="vm.toggleList()" aria-label="Show User List">
+          <md-icon md-svg-icon="menu" ></md-icon>
+        </md-button>
+        <h3>Angular Material - Starter App</h3>
+      </md-toolbar>
 
-      <pre>{{'Step: ' + step}}</pre>
+      <md-content flex id="content">
+        <md-icon md-svg-icon="{{vm.selected.avatar}}" class="avatar"></md-icon>
+        <h2>{{vm.selected.name}}</h2>
+        <p>{{vm.selected.content}}</p>
 
-    </md-content>
+        <md-button class="contact" md-no-ink ng-click="vm.makeContact(vm.selected)" aria-label="Share with {{ vm.selected.name }}">
+          <md-tooltip>Contact {{ vm.selected.name }}</md-tooltip>
+          <md-icon md-svg-icon="share"></md-icon>
+        </md-button>
+      </md-content>
 
-  </div>
+    </div>
 
     <script src="./bower_components/angular/angular.js"></script>
     <script src="./bower_components/angular-animate/angular-animate.js"></script>
