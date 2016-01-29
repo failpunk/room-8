@@ -16,8 +16,8 @@
     var users = [
       {
         name: 'Lia Lugo',
-        gender: '',
-        avatar: 'svg-1',
+        gender: 'female',
+        avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/chrubo/73.jpg',
         has_a_place: true,
         looking_for_a_place: false,
         on_campus: true,
@@ -30,8 +30,8 @@
       },
       {
         name: 'George Duke',
-        gender: '',
-        avatar: 'svg-2',
+        gender: 'male',
+        avatar: 'https:\/\/s3.amazonaws.com\/uifaces\/faces\/twitter\/avkashkakdiya\/128.jpg',
         has_a_place: true,
         looking_for_a_place: false,
         on_campus: true,
@@ -43,8 +43,8 @@
       },
       {
         name: 'Gener Delosreyes',
-        gender: '',
-        avatar: 'svg-3',
+        gender: 'female',
+        avatar: 'https:\/\/s3.amazonaws.com\/uifaces\/faces\/twitter\/amr_soliman\/128.jpg',
         has_a_place: true,
         looking_for_a_place: false,
         on_campus: true,
@@ -56,8 +56,8 @@
       },
       {
         name: 'Lawrence Ray',
-        gender: '',
-        avatar: 'svg-4',
+        gender: 'male',
+        avatar: 'https:\/\/s3.amazonaws.com\/uifaces\/faces\/twitter\/emieljanson\/128.jpg',
         has_a_place: true,
         looking_for_a_place: false,
         on_campus: true,
@@ -69,8 +69,8 @@
       },
       {
         name: 'Ernesto Urbina',
-        gender: '',
-        avatar: 'svg-5',
+        gender: 'male',
+        avatar: 'https:\/\/s3.amazonaws.com\/uifaces\/faces\/twitter\/kercosmeticos\/128.jpg',
         has_a_place: true,
         looking_for_a_place: false,
         on_campus: true,
@@ -82,8 +82,8 @@
       },
       {
         name: 'Gani Ferrer',
-        gender: '',
-        avatar: 'svg-6',
+        gender: 'female',
+        avatar: 'https:\/\/s3.amazonaws.com\/uifaces\/faces\/twitter\/spoilednun\/128.jpg',
         has_a_place: true,
         looking_for_a_place: false,
         on_campus: true,
