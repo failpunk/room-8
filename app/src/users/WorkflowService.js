@@ -30,12 +30,17 @@
     });
         
     fsm.onenterpick_school = function (event, from, to, deferred, args) {
-        deferred.resolve([fsm.current, fsm.can('next'), 'USC,UCLA']);  
+        deferred.resolve([fsm.current, fsm.can('next'), 'USC, UCLA']);
     };
     
     fsm.onenterstate = function (event, from, to, deferred, args) {
-        if (event.indexOf('get_question') > -1) {
-            deferred.resolve([fsm.current, fsm.can('next'), questionsService.loadAll()]);
+        if (fsm.current.indexOf('get_question') > -1) {
+          return questionsService.loadAll()
+              .then(function(questions) {
+                debugger;
+                return deferred.resolve([fsm.current, fsm.can('next'), questions]);
+              })
+
         } else {
             deferred.resolve([fsm.current, fsm.can('next'), null]);
         }
