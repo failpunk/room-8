@@ -3,7 +3,7 @@
   angular
        .module('users')
        .controller('onboardController', [
-          'workflowService', 'userService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$scope',
+          'workflowService', 'userService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$scope', '$mdToast',
           OnboardController
        ]);
 
@@ -14,11 +14,11 @@
    * @param avatarsService
    * @constructor
    */
-  function OnboardController( workflowService, userService, $mdSidenav, $mdBottomSheet, $log, $q, $scope) {
+  function OnboardController( workflowService, userService, $mdSidenav, $mdBottomSheet, $log, $q, $scope, $mdToast) {
 
     var vm = this;
 
-    vm.onboarding = true;
+    vm.onboarding = false;
     $scope.nextStep = nextStep;
     $scope.step = [];
 
@@ -73,6 +73,7 @@
     vm.selectUser   = selectUser;
     vm.toggleList   = toggleUsersList;
     vm.makeContact  = makeContact;
+    vm.addFavorite  = addFavorite;
 
     vm.tabs = [
       { title: 'One', content: "Tabs will become paginated if there isn't enough room for them."}
@@ -151,6 +152,10 @@
       }
     }
 
+    function addFavorite(user) {
+      vm.favorite = user.name;
+      $mdToast.show($mdToast.simple().textContent(user.name + ' added to favorites!'));
+    }
   }
 
 })();

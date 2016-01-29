@@ -143,8 +143,47 @@ span.name {
 .tabsdemoDynamicTabs .md-button.add-tab {
   transform: translateY(5px); }
 
+html, body, md-list, #content, md-sidenav, .md-subheader {
+  background-color: #FF504D;
+  color: white;
+}
+
+md-toolbar {
+  background-color: black !important;
+}
 
 .user-questions {
   max-width: 40%;
   margin: 0 auto;
+}
+
+.match-detail md-list {
+  text-align: left;
+}
+
+.match-detail md-chips-wrap {
+  text-align: center;
+}
+
+.match-detail md-list-item {
+  margin-bottom: 20px;
+}
+
+.match-detail .material-icons {
+  font-size: 32px;
+  margin-right: 20px;
+}
+.user-match-attribute-text {
+  font-size: 32px;
+  text-align: left;
+}
+
+
+.match-detail .favorite i {
+  font-size: 50px;
+
+}
+.match-detail .favorite i:hover {
+  color: black;
+  transition: all 0.3s ease;
 }
