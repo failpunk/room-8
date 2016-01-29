@@ -48,7 +48,7 @@
 
         <splash-directive ng-if="step == 'finish'"></splash-directive>
 
-        <pre>{{'Step: ' + step}}</pre>
+        <!--<pre>{{'Step: ' + step}}</pre>-->
 
       </md-content>
 
@@ -69,7 +69,7 @@
       <md-list>
         <md-list-item ng-repeat="it in vm.users">
           <md-button ng-click="vm.selectUser(it)" ng-class="{'selected' : it === vm.selected }">
-            <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
+            <img class="avatar" ng-src="{{it.avatar}}" alt="user image">
             {{it.name}}
           </md-button>
         </md-list-item>
@@ -88,17 +88,17 @@
       </md-toolbar>
 
       <md-content flex id="content" class="match-detail">
-        <md-icon md-svg-icon="{{vm.selected.avatar}}" class="avatar"></md-icon>
+        <img class="avatar" ng-src="{{vm.selected.avatar}}" alt="user image">
         <h2>{{vm.selected.name}}</h2>
 
         <md-chips>
           <md-chip>{{vm.selected.gender}}</md-chip>
           <md-chip>{{vm.selected.has_a_place ? 'Has a place' : 'Needs a place'}}</md-chip>
           <md-chip>{{vm.selected.on_campus ? 'on campus' : 'off campus'}}</md-chip>
-          <md-chip>{{vm.selected.gender}}</md-chip>
+          <md-chip>Roommates Needed: {{vm.selected.roommates_needed}}</md-chip>
         </md-chips>
 
-        <pre>{{vm.selected|json}}</pre>
+        <!--<pre>{{vm.selected|json}}</pre>-->
 
         <p>{{vm.selected.content}}</p>
 
@@ -107,7 +107,7 @@
 
           <md-list-item>
             <i class="material-icons">alarm</i>
-            <p class="user-match-attribute-text">{{vm.selected.get_question_2 == 'party' ? 'Night Owl' : 'Early Bird'}}</p>
+            <p class="user-match-attribute-text">{{vm.selected.get_question_1 == 'morning' ? 'Early Bird' : 'Night Owl'}}</p>
           </md-list-item>
 
           <md-list-item>
@@ -117,7 +117,7 @@
 
           <md-list-item>
             <i class="material-icons">bug_report</i>
-            <p class="user-match-attribute-text">{{vm.selected.get_question_3 == 'clean' ? 'Clean Freak' : 'other'}}</p>
+            <p class="user-match-attribute-text">{{vm.selected.get_question_3 == 'clean' ? 'Cleans It' : 'Leaves It'}}</p>
           </md-list-item>
         </md-list>
 
