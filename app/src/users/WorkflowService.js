@@ -19,7 +19,8 @@
         { name: 'next', from: 'log_in', to: 'pick_school' },
         { name: 'next',  from: 'pick_school', to: 'get_phone' },
         { name: 'next',  from: 'get_phone', to: 'get_question-1' },
-        { name: 'next',  from: ['get_question-1'], to: 'finish' },
+        { name: 'next',  from: ['get_question-1'], to: 'get_question-2' },
+        { name: 'next',  from: ['get_question-2'], to: 'finish' },
         // { name: 'next',  from: '*', to: 'start' },
         { name: 'reset',  from: '*', to: 'start' }
     ];
