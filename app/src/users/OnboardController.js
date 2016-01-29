@@ -18,7 +18,7 @@
 
     var vm = this;
 
-    vm.onboarding = false;
+    vm.onboarding = true;
     $scope.nextStep = nextStep;
     $scope.step = [];
 
