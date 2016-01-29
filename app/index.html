@@ -29,6 +29,7 @@
 
   <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
+
     <md-toolbar layout="row" class="md-whiteframe-z1">
       <md-button id="main" class="menu" hide-gt-sm aria-label="Show User List">
         <md-icon md-svg-icon="menu" ></md-icon>
@@ -44,7 +45,11 @@
 
       <step-three-directive ng-if="step == 'get_phone'"></step-three-directive>
 
-      {{'Step ' + step}}
+      <questions-directive ng-if="isQuestion()"></questions-directive>
+
+      <splash-directive ng-if="step == 'finish'"></splash-directive>
+
+      <pre>{{'Step: ' + step}}</pre>
 
     </md-content>
 
@@ -64,6 +69,8 @@
     <script src="src/users/StepOneDirective.js"></script>
     <script src="src/users/StepTwoDirective.js"></script>
     <script src="src/users/StepThreeDirective.js"></script>
+    <script src="src/users/QuestionsDirective.js"></script>
+    <script src="src/users/SplashDirective.js"></script>
     <script src="./state-machine.min.js"></script>
 
     <script type="text/javascript">

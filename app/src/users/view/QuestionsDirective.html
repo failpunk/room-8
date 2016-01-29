@@ -1,22 +1,13 @@
 <div class="user-questions">
 
-  <h2>Validate Your Number</h2>
+  <h2>{{step}}</h2>
 
-  <p>We make finding a roommate safe and secure by validating your phone number</p>
+  <p>{{stepData.text}}</p>
 
   <form ng-submit="$event.preventDefault()">
-
-    <md-input-container md-no-float="" class="md-block md-input-has-placeholder md-icon-left md-input-has-value">
-      <md-icon aria-hidden="true">
-        <i class="material-icons">local_phone</i>
-      </md-icon>
-      <input ng-model="user.phone" type="text" placeholder="Your Phone Number..." >
-      <div class="md-errors-spacer"></div></md-input-container>
-
+    <md-button ng-repeat="question in stepData.options" class="md-primary md-raised" ng-click="dataCallback(question)" >
+      {{question.name}}
+    </md-button>
   </form>
-
-  <md-button class="md-primary md-raised" ng-click="nextStep()" ng-disabled="!user.phone">
-    Validate My Number
-  </md-button>
 
 </div>

@@ -21,6 +21,7 @@
     $scope.nextStep = nextStep;
 
     $scope.dataCallback = dataCallback;
+    $scope.isQuestion = isQuestion;
 
     nextStep();
 
@@ -47,6 +48,10 @@
 
     function fail() {
       console.log('oasdfkjhsd');
+    }
+
+    function isQuestion() {
+      return $scope.step.indexOf('question') > -1;
     }
 
   }
