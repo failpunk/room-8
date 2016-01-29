@@ -84,18 +84,46 @@
         <md-button id="main" class="menu" hide-gt-sm ng-click="vm.toggleList()" aria-label="Show User List">
           <md-icon md-svg-icon="menu" ></md-icon>
         </md-button>
-        <h3>Angular Material - Starter App</h3>
+        <h3>Room - 8</h3>
       </md-toolbar>
 
-      <md-content flex id="content">
+      <md-content flex id="content" class="match-detail">
         <md-icon md-svg-icon="{{vm.selected.avatar}}" class="avatar"></md-icon>
         <h2>{{vm.selected.name}}</h2>
+
+        <md-chips>
+          <md-chip>Male</md-chip>
+          <md-chip>Has a place</md-chip>
+          <md-chip>On-Campus</md-chip>
+          <md-chip>Needs 2 Roommates</md-chip>
+        </md-chips>
+
         <p>{{vm.selected.content}}</p>
 
-        <md-button class="contact" md-no-ink ng-click="vm.makeContact(vm.selected)" aria-label="Share with {{ vm.selected.name }}">
-          <md-tooltip>Contact {{ vm.selected.name }}</md-tooltip>
-          <md-icon md-svg-icon="share"></md-icon>
+        <md-list>
+          <md-subheader class="md-no-sticky">Roommate Traits</md-subheader>
+
+          <md-list-item>
+            <i class="material-icons">alarm</i>
+            <p class="user-match-attribute-text">Night Owl</p>
+          </md-list-item>
+
+          <md-list-item>
+            <i class="material-icons">accessibility</i>
+            <p class="user-match-attribute-text">Party Animal</p>
+          </md-list-item>
+
+          <md-list-item>
+            <i class="material-icons">bug_report</i>
+            <p class="user-match-attribute-text">Clean Freak</p>
+          </md-list-item>
+        </md-list>
+
+        <md-button class="contact favorite" md-no-ink ng-click="vm.addFavorite(vm.selected)" aria-label="Share with {{ vm.selected.name }}">
+          <md-tooltip>Favorite {{ vm.selected.name }}</md-tooltip>
+          <i class="material-icons">{{vm.favorite == vm.selected.name ? 'favorite' : 'favorite_border'}}</i>
         </md-button>
+
       </md-content>
 
     </div>
