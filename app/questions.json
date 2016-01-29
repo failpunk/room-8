@@ -1,24 +1,54 @@
 {
   "get_question-1": {
-    "text": "hello world",
+    "text": "Share Room or Private Room?",
     "options": [
       {
-        "name": "foo",
-        "value": "bar"
-      }
+        "value": "share",
+        "name": "Share Room"
+      },
+      {
+          "value": "private",
+          "name": "Private Room"
+        }
     ]
   },
   "get_question-2": {
-    "text": "If corn oil is made from corn, what is baby oil made from?",
+    "text": "Party All Night or Work Hard All Day?",
     "options": [
       {
-        "name": "foo",
-        "value": "bar"
+        "value": "party",
+        "name": "Party All Night"
       },
       {
-        "name": "oscar",
-        "value": "wilde"
+        "value": "work",
+        "name": "Work Hard All Day"
       }
     ]
+  },
+  "get_question-3": {
+	    "text": "Clean it or Leave it?",
+	    "options": [
+	      {
+	        "value": "clean",
+	        "name": "Clean it"
+	      },
+	      {
+	        "value": "leave",
+	        "name": "Leave it"
+	      }
+	 ]
+  },
+  "get_question-4": {
+	    "text": "Near Campus or On Campus?",
+	    "options": [
+	      {
+	        "value": "near_c",
+	        "name": "Near Campus"
+	      },
+	      {
+	        "value": "on_c",
+	        "name": "On Campus"
+	      }
+	 ] 
   }
 }
