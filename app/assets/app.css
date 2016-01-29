@@ -232,3 +232,12 @@ md-toolbar {
 md-progress-linear {
   margin-top: 10px;
 }
+
+.user-questions button {
+  background-color: #FFD800 !important;
+  color: black !important;
+}
+
+.user-questions button[disabled] {
+  background-color: #D0D0D0 !important;
+}
