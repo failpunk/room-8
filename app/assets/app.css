@@ -50,6 +50,7 @@ md-list-item {
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 5px;
+  text-align: center;
 }
 
 #content .md-button.contact {
@@ -141,3 +142,9 @@ span.name {
   width: 264px; }
 .tabsdemoDynamicTabs .md-button.add-tab {
   transform: translateY(5px); }
+
+
+.user-questions {
+  max-width: 40%;
+  margin: 0 auto;
+}
