@@ -28,14 +28,16 @@
       initial: 'start',
       events: events
     });
-    
-     fsm.onenterstate = function (event, from, to, deferred, args) {
-       deferred.resolve([fsm.current, fsm.can('next')]);
-     };
-    
+        
     fsm.onenterpick_school = function (event, from, to, deferred, args) {
         deferred.resolve([fsm.current, fsm.can('next'), 'USC,UCLA']);  
     };
+    
+    fsm.onenterstate = function (event, from, to, deferred, args) {
+        if (event.indexOf('get_question') > -1) {
+            deferred.resolve([fsm.current, fsm.can('next'), questionsService.loadAll()]);
+        }
+    }
     
      fsm.onleavepick_school = function (event, from, to, deferred, args) {
          // return false;
