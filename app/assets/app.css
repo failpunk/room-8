@@ -241,3 +241,8 @@ md-progress-linear {
 .user-questions button[disabled] {
   background-color: #D0D0D0 !important;
 }
+
+md-content h2 {
+  font-size: 32px;
+  font-weight: 300;
+}

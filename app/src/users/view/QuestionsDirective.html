@@ -1,8 +1,8 @@
 <div class="user-questions">
 
-  <h2>{{step}}</h2>
+  <h2>{{stepData.name}}</h2>
 
-  <p>{{stepData.text}}</p>
+  <!--<p>{{stepData.text}}</p>-->
 
   <form ng-submit="$event.preventDefault()">
     <md-button ng-repeat="question in stepData.options" class="md-primary md-raised" ng-click="dataCallback(question)" >

@@ -1,11 +1,11 @@
 {
   "get_question-1": {
-    "name": "",
-    "text": "Share Room or Private Room?",
+    "name": "What Living Arrangement Would Work Best...",
+    "text": "A Private Room Or Shared Room?",
     "options": [
       {
         "value": "share",
-        "name": "Share Room"
+        "name": "Share A Room"
       },
       {
           "value": "private",
@@ -14,6 +14,7 @@
     ]
   },
   "get_question-2": {
+    "name": "Are You More Likely To...",
     "text": "Party All Night or Work Hard All Day?",
     "options": [
       {
@@ -27,6 +28,7 @@
     ]
   },
   "get_question-3": {
+        "name": "When You See A Mess Would You...",
 	    "text": "Clean it or Leave it?",
 	    "options": [
 	      {
@@ -40,6 +42,7 @@
 	 ]
   },
   "get_question-4": {
+        "name": "Where Are You Looking To Live...",
 	    "text": "Near Campus or On Campus?",
 	    "options": [
 	      {
