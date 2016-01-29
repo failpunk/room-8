@@ -30,18 +30,18 @@
     });
     
     fsm.onenterstate = function (event, from, to, deferred, args) {
-      deferred.resolve([fsm.current, args]);  
+      deferred.resolve([fsm.current,  fsm.can('next')]);  
     };
     
     fsm.onleavepick_school = function (event, from, to, deferred, args) {
-        // return false;
+        // return false;    
     };
 
     return {
         'next': function (args) {
           var deferred = $q.defer();
           fsm.next(deferred, args);
-          return [deferred.promise, fsm.can('next')];
+          return deferred.promise;
         }
     }
   }
