@@ -29,17 +29,17 @@
       events: events
     });
     
-    // fsm.onenterstate = function (event, from, to, deferred, args) {
-    //   deferred.resolve([fsm.current, fsm.can('next')]);  
-    // };
+     fsm.onenterstate = function (event, from, to, deferred, args) {
+       deferred.resolve([fsm.current, fsm.can('next')]);
+     };
     
     fsm.onenterpick_school = function (event, from, to, deferred, args) {
         deferred.resolve([fsm.current, fsm.can('next'), 'USC,UCLA']);  
     };
     
-    // fsm.onleavepick_school = function (event, from, to, deferred, args) {
-    //     // return false;    
-    // };
+     fsm.onleavepick_school = function (event, from, to, deferred, args) {
+         // return false;
+     };
 
     return {
         'next': function (args) {
