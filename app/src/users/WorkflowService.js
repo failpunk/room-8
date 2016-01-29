@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('users')
-         .service('workflowService', ['$q', '$fsm', WorkflowService]);
+         .service('workflowService', ['$q', '$fsm', 'questionsService', WorkflowService]);
 
   /**
    * Users DataService
@@ -12,7 +12,7 @@
    * @returns {{loadAll: Function}}
    * @constructor
    */
-  function WorkflowService($q, $fsm){
+  function WorkflowService($q, $fsm, questionsService){
     
     var events = [
         { name: 'next',  from: 'start',  to: 'log_in' },
@@ -29,13 +29,17 @@
       events: events
     });
     
-    fsm.onenterstate = function (event, from, to, deferred, args) {
-      deferred.resolve([fsm.current,  fsm.can('next')]);  
+    // fsm.onenterstate = function (event, from, to, deferred, args) {
+    //   deferred.resolve([fsm.current, fsm.can('next')]);  
+    // };
+    
+    fsm.onenterpick_school = function (event, from, to, deferred, args) {
+        deferred.resolve([fsm.current, fsm.can('next'), 'USC,UCLA']);  
     };
     
-    fsm.onleavepick_school = function (event, from, to, deferred, args) {
-        // return false;    
-    };
+    // fsm.onleavepick_school = function (event, from, to, deferred, args) {
+    //     // return false;    
+    // };
 
     return {
         'next': function (args) {
