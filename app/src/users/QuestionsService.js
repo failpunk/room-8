@@ -21,6 +21,11 @@
             return $q.when(loadQuestions).then(function (res) {
                 return res.data[state];
             });
+        },
+        'loadAll': function () {
+            return $q.when(loadQuestions).then(function (res) {
+                return res.data;
+            });
         }
     }
   }

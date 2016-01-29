@@ -19,6 +19,7 @@
     var vm = this;
 
     $scope.nextStep = nextStep;
+    $scope.step = [];
 
     $scope.dataCallback = dataCallback;
     $scope.isQuestion = isQuestion;
