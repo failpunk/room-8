@@ -48,8 +48,6 @@
 
         <splash-directive ng-if="step == 'finish'"></splash-directive>
 
-        <!--<pre>{{'Step: ' + step}}</pre>-->
-
       </md-content>
 
     </div>
@@ -63,14 +61,16 @@
                 md-is-locked-open="$mdMedia('gt-sm')">
 
       <md-toolbar class="md-whiteframe-z1">
-        <h3>Users</h3>
+        <h3>Matches</h3>
       </md-toolbar>
 
       <md-list>
         <md-list-item ng-repeat="it in vm.users">
-          <md-button ng-click="vm.selectUser(it)" ng-class="{'selected' : it === vm.selected }">
+          <md-button ng-click="vm.selectUser(it)" ng-class="{'selected' : it === vm.selected, 'match-percent-high': it.score > .89, 'match-percent-medium': it.score > .69, 'match-percent-low': it.score < .69 }">
             <img class="avatar" ng-src="{{it.avatar}}" alt="user image">
             {{it.name}}
+            <small class="match-percent">{{it.score*100}}%</small>
+            <md-progress-linear md-mode="determinate" ng-value="it.score * 100"></md-progress-linear>
           </md-button>
         </md-list-item>
       </md-list>
@@ -88,7 +88,7 @@
       </md-toolbar>
 
       <md-content flex id="content" class="match-detail">
-        <img class="avatar" ng-src="{{vm.selected.avatar}}" alt="user image">
+        <img class="avatar main" ng-src="{{vm.selected.avatar}}" alt="user image">
         <h2>{{vm.selected.name}}</h2>
 
         <md-chips>

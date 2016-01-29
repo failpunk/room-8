@@ -193,6 +193,42 @@ md-toolbar {
   transition: all 0.3s ease;
 }
 
-.avatar {
+.avatar.main {
+  width: 100px;
+  height: 100px;
+}
 
+.match-percent {
+  float: right;
+  padding-top: 10px;
+  margin-right: 4px;
+  font-size: 15px;
+}
+
+.match-percent-low small {
+  color: red;
+}
+
+.match-percent-medium small {
+  color: blue;
+}
+
+.match-percent-high small {
+  color: green;
+}
+
+.match-percent-low .md-bar, md-progress-linear .md-bar {
+  background-color: red;
+}
+
+.match-percent-medium .md-bar, md-progress-linear .md-bar {
+  background-color: blue;
+}
+
+.match-percent-high .md-bar, md-progress-linear .md-bar {
+  background-color: green;
+}
+
+md-progress-linear {
+  margin-top: 10px;
 }
