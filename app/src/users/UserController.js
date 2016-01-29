@@ -3,7 +3,7 @@
   angular
        .module('users')
        .controller('UserController', [
-          'userService', 'workflowService', '$mdSidenav', '$mdBottomSheet', '$log', '$q',
+          'userService', 'workflowService', '$mdSidenav', '$mdBottomSheet', '$log', '$q', '$fsm',
           UserController
        ]);
 
@@ -14,7 +14,7 @@
    * @param avatarsService
    * @constructor
    */
-  function UserController( userService, workflowService, $mdSidenav, $mdBottomSheet, $log, $q) {
+  function UserController( userService, workflowService, $mdSidenav, $mdBottomSheet, $log, $q, $fsm) {
 
     var self = this;
 
@@ -47,7 +47,6 @@
             self.selected = users[0];
           });
           
-    $log.debug(workflowService)
 
     // *********************************
     // Internal methods

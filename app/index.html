@@ -10,6 +10,7 @@
 
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/app.css"/>
 
     <style type="text/css">
@@ -23,35 +24,13 @@
 
   </head>
 
-  <body ng-app="starterApp" layout="row" ng-controller="UserController as ul" ng-cloak >
-
-  <md-sidenav
-      ng-if="false"
-      class="site-sidenav md-sidenav-left md-whiteframe-z2"
-      md-component-id="left"
-      ng-click="ul.toggleList()" aria-label="Show User List"
-      md-is-locked-open="$mdMedia('gt-sm')">
-
-    <md-toolbar class="md-whiteframe-z1">
-      <h3>Users</h3>
-    </md-toolbar>
-
-    <md-list>
-      <md-list-item ng-repeat="it in ul.users">
-          <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
-            <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
-            {{it.name}}
-          </md-button>
-      </md-list-item>
-    </md-list>
-
-  </md-sidenav>
+  <body ng-app="starterApp" layout="row" ng-controller="onboardController as vm" ng-cloak >
 
 
   <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
 
     <md-toolbar layout="row" class="md-whiteframe-z1">
-      <md-button id="main" class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+      <md-button id="main" class="menu" hide-gt-sm aria-label="Show User List">
         <md-icon md-svg-icon="menu" ></md-icon>
       </md-button>
       <h3>Roomie Search</h3>
@@ -59,17 +38,13 @@
 
     <md-content flex id="content">
 
-      <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
-        <md-tab ng-repeat="tab in ul.tabs"
-                ng-disabled="tab.disabled"
-                label="{{tab.title}}">
-          <div class="demo-tab tab{{$index%4}}" style="padding: 25px; text-align: center;">
-            <div ng-bind="tab.content"></div>
-            <br/>
-            <md-button class="md-primary md-raised" ng-click="ul.nextTab( tab )" ng-disabled="tabs.length <= 1">Next Tab</md-button>
-          </div>
-        </md-tab>
-      </md-tabs>
+      <step-one-directive></step-one-directive>
+
+      <step-two-directive></step-two-directive>
+
+      <step-three-directive></step-three-directive>
+
+      {{'Step ' + step}}
 
     </md-content>
 
@@ -82,8 +57,12 @@
 
     <script src="./src/users/Users.js"></script>
     <script src="./src/users/UserController.js"></script>
+    <script src="./src/users/OnboardController.js"></script>
     <script src="./src/users/UserService.js"></script>
     <script src="./src/users/WorkflowService.js"></script>
+    <script src="src/users/StepOneDirective.js"></script>
+    <script src="src/users/StepTwoDirective.js"></script>
+    <script src="src/users/StepThreeDirective.js"></script>
     <script src="./state-machine.min.js"></script>
 
     <script type="text/javascript">
