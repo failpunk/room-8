@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('users')
-         .service('questionsService', ['$q', QuestionsService]);
+         .service('questionsService', ['$q', '$http', QuestionsService]);
 
   /**
    * Users DataService
@@ -12,20 +12,15 @@
    * @returns {{loadAll: Function}}
    * @constructor
    */
-  function QuestionsService($q){
+  function QuestionsService($q, $http){
     
-    var questions = {
-       'get_question-1': {'text': 'hello world', options: [{'name': 'foo', 'value': 'bar'}]},
-       'get_question-2': {'text': 'If corn oil is made from corn, what is baby oil made from?', 
-       options: [
-           {'name': 'foo', 'value': 'bar'}, 
-           {'name':'oscar', 'value': 'wilde'}
-       ]}
-    };
+    var loadQuestions = $http.get('questions.json');
    
     return { 
         'load': function (state) {
-            return $q.when(questions[state]);
+            return $q.when(loadQuestions).then(function (res) {
+                return res.data[state];
+            });
         }
     }
   }
