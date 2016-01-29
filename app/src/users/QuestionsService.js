@@ -15,12 +15,11 @@
   function QuestionsService($q){
     
     var questions = {
-       'get_question-1': {'text': 'hello world', options: [{'name': 'foo', 'value': 'bar'}]},
-        
+       'get_question-1': {'text': 'hello world', options: [{'name': 'foo', 'value': 'bar'}]}
     };
    
     return { 
-        'loadAll': function (state) {
+        'load': function (state) {
             return $q.when(questions[state]);
         }
     }

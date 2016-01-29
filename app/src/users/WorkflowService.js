@@ -35,7 +35,7 @@
     
     fsm.onenterstate = function (event, from, to, deferred, args) {
         if (fsm.current.indexOf('get_question') > -1) {
-          return questionsService.loadAll(fsm.current)
+          return questionsService.load(fsm.current)
               .then(function(questions) {
                 return deferred.resolve([fsm.current, fsm.can('next'), questions]);
               })
