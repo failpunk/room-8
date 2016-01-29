@@ -37,7 +37,6 @@
         if (fsm.current.indexOf('get_question') > -1) {
           return questionsService.loadAll()
               .then(function(questions) {
-                debugger;
                 return deferred.resolve([fsm.current, fsm.can('next'), questions]);
               })
 

@@ -30,6 +30,11 @@
 
   function Controller($scope) {
 
+    $scope.facebook = facebook;
+
+    function facebook() {
+      $scope.dataCallback({id: 1, name: 'Justin', gender: 'male'});
+    }
   }
 
 })();

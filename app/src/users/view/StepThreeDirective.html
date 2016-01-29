@@ -1,4 +1,4 @@
-<div ng-if="step == 3" class="user-questions">
+<div class="user-questions">
 
   <h2>Validate Your Number</h2>
 
@@ -15,7 +15,7 @@
 
   </form>
 
-  <md-button class="md-primary md-raised" ng-click="nextStep()" ng-disabled="!user.phone">
+  <md-button class="md-primary md-raised" ng-click="dataCallback(user.phone)" ng-disabled="!user.phone">
     Validate My Number
   </md-button>
 

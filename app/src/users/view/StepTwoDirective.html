@@ -1,4 +1,4 @@
-<div ng-if="step == 2" class="user-questions">
+<div class="user-questions">
 
   <h2>Select Your School</h2>
 
@@ -26,6 +26,6 @@
     <br/>
   </form>
 
-  <md-button class="md-primary md-raised" ng-click="nextStep()" ng-disabled="!selectedItem">My School Is {{buttonText}}</md-button>
+  <md-button class="md-primary md-raised" ng-click="dataCallback(selectedItem)" ng-disabled="!selectedItem">My School Is {{buttonText}}</md-button>
 
 </div>

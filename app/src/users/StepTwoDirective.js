@@ -72,7 +72,7 @@
      * Build `states` list of key/value pairs
      */
     function loadAll() {
-      var allStates = 'UCLA, USC';
+      var allStates = $scope.stepData || '';
 
       return allStates.split(/, +/g).map( function (state) {
         return {

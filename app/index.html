@@ -38,11 +38,11 @@
 
     <md-content flex id="content">
 
-      <step-one-directive></step-one-directive>
+      <step-one-directive ng-if="step == 'log_in'"></step-one-directive>
 
-      <step-two-directive></step-two-directive>
+      <step-two-directive ng-if="step == 'pick_school'"></step-two-directive>
 
-      <step-three-directive></step-three-directive>
+      <step-three-directive ng-if="step == 'get_phone'"></step-three-directive>
 
       {{'Step ' + step}}
 

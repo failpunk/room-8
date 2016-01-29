@@ -18,24 +18,35 @@
 
     var vm = this;
 
-    $scope.step = 1;
-
     $scope.nextStep = nextStep;
 
     $scope.dataCallback = dataCallback;
 
+    nextStep();
 
 
     ///////////////////////////
 
 
-
     function nextStep() {
-      $scope.step++;
+      workflowService.next()
+          .then(handleNextStep)
+          .catch(fail)
     }
 
     function dataCallback(data) {
       console.log('Collected... ', data);
+      nextStep();
+    }
+
+    function handleNextStep(params) {
+      console.log(params);
+      $scope.step = params[0];
+      $scope.stepData = params[2];
+    }
+
+    function fail() {
+      console.log('oasdfkjhsd');
     }
 
   }
