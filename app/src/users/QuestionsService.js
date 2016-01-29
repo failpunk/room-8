@@ -15,7 +15,8 @@
   function QuestionsService($q){
     
     var questions = {
-       'get_question-1': {'text': 'hello world', options: [{'name': 'foo', 'value': 'bar'}]}
+       'get_question-1': {'text': 'hello world', options: [{'name': 'foo', 'value': 'bar'}]},
+       'get_question-2': {'text': 'If corn oil is made from corn, what is baby oil made from?', options: [{'name': 'foo', 'value': 'bar'}]}
     };
    
     return { 
