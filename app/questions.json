@@ -3,12 +3,12 @@
     "text": "Share Room or Private Room?",
     "options": [
       {
-        "name": "share",
-        "value": "Share Room"
+        "value": "share",
+        "name": "Share Room"
       },
       {
-          "name": "private",
-          "value": "Private Room"
+          "value": "private",
+          "name": "Private Room"
         }
     ]
   },
@@ -16,12 +16,12 @@
     "text": "Party All Night or Work Hard All Day?",
     "options": [
       {
-        "name": "party",
-        "value": "Party All Night"
+        "value": "party",
+        "name": "Party All Night"
       },
       {
-        "name": "work",
-        "value": "Work Hard All Day"
+        "value": "work",
+        "name": "Work Hard All Day"
       }
     ]
   },
@@ -29,12 +29,12 @@
 	    "text": "Clean it or Leave it?",
 	    "options": [
 	      {
-	        "name": "clean",
-	        "value": "Clean it"
+	        "value": "clean",
+	        "name": "Clean it"
 	      },
 	      {
-	        "name": "leave",
-	        "value": "Leave it"
+	        "value": "leave",
+	        "name": "Leave it"
 	      }
 	 ]
   },
@@ -42,12 +42,12 @@
 	    "text": "Near Campus or On Campus?",
 	    "options": [
 	      {
-	        "name": "near_c",
-	        "value": "Near Campus"
+	        "value": "near_c",
+	        "name": "Near Campus"
 	      },
 	      {
-	        "name": "on_c",
-	        "value": "On Campus"
+	        "value": "on_c",
+	        "name": "On Campus"
 	      }
 	 ] 
   }
