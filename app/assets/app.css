@@ -144,12 +144,12 @@ span.name {
   transform: translateY(5px); }
 
 html, body, md-list, #content, md-sidenav, .md-subheader {
-  background-color: #FF504D;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 md-toolbar {
-  background-color: black !important;
+  background-color: #FF504D !important;
 }
 
 .user-questions {
@@ -181,9 +181,14 @@ md-toolbar {
 
 .match-detail .favorite i {
   font-size: 50px;
-
+  color: #FFD800;
 }
+
+.match-detail .favorite i.active {
+  color: #FF504D;
+}
+
 .match-detail .favorite i:hover {
-  color: black;
+  color: #FF504D;
   transition: all 0.3s ease;
 }
