@@ -77,7 +77,7 @@
       {
         name: 'Ernesto Urbina',
         gender: 'male',
-        avatar: 'https:\/\/s3.amazonaws.com\/uifaces\/faces\/twitter\/kercosmeticos\/73.jpg',
+        avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/myusuf3/73.jpg',
         has_a_place: true,
         looking_for_a_place: false,
         on_campus: true,
