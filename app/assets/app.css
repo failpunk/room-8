@@ -242,7 +242,12 @@ md-progress-linear {
   background-color: #D0D0D0 !important;
 }
 
+md-content {
+  text-align: center;
+}
+
 md-content h2 {
   font-size: 32px;
   font-weight: 300;
+  text-align: center;
 }
